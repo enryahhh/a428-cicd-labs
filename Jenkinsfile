@@ -24,6 +24,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
+                echo "web app bisa diakses selama 1 menit di http://localhost:3000"
                 sleep(time: 1, unit: 'MINUTES')
                 sh './jenkins/scripts/kill.sh'
             }
